@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo $(cat ~/2q_doc-qiuy/50_Environment/iqi_history/oq_bspwm/tq_logs/lang)

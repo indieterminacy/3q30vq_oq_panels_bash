@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# ./iq_utilities/list | grep '\|' &>/dev/null
+. ~/1q_ctrl-qiuy/50_Environment/rq_analysing/iqi_window-environment/oq_bspwm/oq_bash/list | grep '\|' &>/dev/null
+if [[ $? -eq 0 ]]; then
+    echo '+'
+else
+    echo '  '
+fi

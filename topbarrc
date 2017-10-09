@@ -1,0 +1,22 @@
+#!/bin/bash
+
+export root=$(dirname $(readlink -f $0))
+read screen_width screen_height <<<$(xdpyinfo | grep dimensions | awk '{print $2}' | awk -Fx '{print $1, $2}')
+center_indent=$(( ($screen_width / 2) - 30 ))
+right_indent=$(( $screen_width - 80 ))
+
+shift $((OPTIND - 1))
+while read -r line ; do
+    applets='title desktop clock hidden lang playing'
+    # applets='title desktop mail clock hidden lang playing'
+    for applet in $applets; do
+        res=$($HOME/3q_understand-qiuy/30_Display/vq_panels/oq_bash/oqo_scripts/$applet $line)
+        if [[ $? -eq 0 ]]; then
+            eval "$applet"='$res'
+        fi
+    done
+    # printf "%s\n" "$desktop $title $clock $hidden $lang $mail ^i($HOME/5q_env-qiuy/20_Content/fq_icons/iqi_window-managers/kq_x-bitmaps/mail.xbm)"
+    printf "%s\n" "$desktop $title" # \
+    # ^pq($HOME/5q_env-qiuy/20_Content/fq_icons/iqi_window-managers/kq_x-bitmaps/mail.xbm)"
+done
+
